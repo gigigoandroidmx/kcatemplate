@@ -130,7 +130,20 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    compile parent.ext.testing.junit
+    compile parent.ext.libraries.design
+    compile parent.ext.libraries.appcompat
+    compile parent.ext.libraries.recyclerview
+    compile parent.ext.libraries.constraintlayout
+    compile parent.ext.libraries.glide
+    compile parent.ext.libraries.eventbus
+
+    compile parent.ext.libraries.butterknife
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+
+    compile parent.ext.libraries.dagger
+    annotationProcessor parent.ext.libraries.daggerCompiler
+
+    compile project(':domain')
+    compile project(':kmvp')
 }

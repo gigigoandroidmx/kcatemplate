@@ -8,7 +8,7 @@ ext{
 
     //Dependency version
     junitVersion = '4.12'
-    supportVersion = '25.2.0'
+    supportVersion = '25.3.1'
     retrofitVersion = '2.2.0'
     gsonVersion = '2.1.0'
     okhttpVersion = '3.7.0'
@@ -18,6 +18,10 @@ ext{
     materialdialogsVersion = '0.9.4.5'
     glideVersion = '3.8.0'
     eventbusVersion = '3.0.0'
+    rxJavaVersion = '2.1.0'
+    rxAndroidVersion = '2.0.1'
+    constraintLayoutVersion = '1.0.2'
+    daggerVersion = '2.11'
 
     //Packages
     junitPackage = 'junit'
@@ -30,6 +34,9 @@ ext{
     materialdialogsPackage = 'com.afollestad.material-dialogs'
     glidePackage = 'com.github.bumptech.glide'
     eventbusPackage = 'org.greenrobot'
+    rxPackage = 'io.reactivex.rxjava2'
+    constraintLayoutPackage = 'com.android.support.constraint'
+    daggerPackage = 'com.google.dagger'
 
     //Libraries
     libraries = [
@@ -45,7 +52,12 @@ ext{
             saripaar :                  buildDependency(saripaarPackage, 'android-saripaar', saripaarVersion),
             materialdialogs :           buildDependency(materialdialogsPackage, 'core', materialdialogsVersion),
             glide :                     buildDependency(glidePackage, 'glide', glideVersion),
-            eventbus:                   buildDependency(eventbusPackage, 'eventbus', eventbusVersion)//,
+            eventbus:                   buildDependency(eventbusPackage, 'eventbus', eventbusVersion),
+            rxjava:                     buildDependency(rxPackage, 'rxjava', rxJavaVersion),
+            rxandroid:                  buildDependency(rxPackage, 'rxandroid', rxAndroidVersion),
+            constraintlayout:           buildDependency(constraintLayoutPackage, 'constraint-layout', constraintLayoutVersion),
+            dagger:                     buildDependency(daggerPackage, 'dagger', daggerVersion),
+            daggerCompiler:             buildDependency(daggerPackage, 'dagger-compiler', daggerVersion)
     ]
 
     //Modules
