@@ -1,0 +1,18 @@
+ext{
+    template = [
+            versionCode :                                           100000,
+            versionName :                                           "1.0.0",
+            versionCodeRelease :                                    100000,
+            versionNameRelease :                                    "1.0.0",
+            applicationId :                                         "com.gigigo.kcatemplate",
+            appName :                                               "Gigigo Clean Architecture Template",
+
+            host :                                                  [debug:             "https://reqres.in",
+                                                                     production:        "https://reqres.in",
+                                                                     release:           "https://reqres.in"],
+
+            host_pos :                                              [debug:             "https://reqres.in",
+                                                                     production:        "https://reqres.in",
+                                                                     release:           "https://reqres.in"],
+    ]
+}
