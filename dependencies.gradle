@@ -49,6 +49,7 @@ ext{
             okhttp :                    buildDependency(okhttpPackage, 'logging-interceptor', okhttpVersion),
             logginginterceptor :        buildDependency(logginginterceptorPackage, 'LoggingInterceptor', logginginterceptorVersion),
             butterknife :               buildDependency(butterknifePackage, 'butterknife', butterknifeVersion),
+            butterknifecompiler:        buildDependency(butterknifePackage, 'butterknife-compiler', butterknifeVersion),
             saripaar :                  buildDependency(saripaarPackage, 'android-saripaar', saripaarVersion),
             materialdialogs :           buildDependency(materialdialogsPackage, 'core', materialdialogsVersion),
             glide :                     buildDependency(glidePackage, 'glide', glideVersion),
@@ -57,7 +58,8 @@ ext{
             rxandroid:                  buildDependency(rxPackage, 'rxandroid', rxAndroidVersion),
             constraintlayout:           buildDependency(constraintLayoutPackage, 'constraint-layout', constraintLayoutVersion),
             dagger:                     buildDependency(daggerPackage, 'dagger', daggerVersion),
-            daggerCompiler:             buildDependency(daggerPackage, 'dagger-compiler', daggerVersion)
+            daggerCompiler:             buildDependency(daggerPackage, 'dagger-compiler', daggerVersion),
+            adapterrxjava2:            buildDependency(retrofitPackage, 'adapter-rxjava2', retrofitVersion)
     ]
 
     //Modules
