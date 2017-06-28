@@ -10,6 +10,8 @@ import com.gigigo.kcatemplate.presentation.ui.viewmodel.mapper.UserViewModelToUs
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.annotations.NonNull;
 
 /**
@@ -22,6 +24,7 @@ public class HomePresenter
     private final SingleUserInteractor singleUserInteractor;
     private final UserViewModelToUserMapper mapper;
 
+    @Inject
     public HomePresenter(ListUserInteractor listUserInteractor,
                          SingleUserInteractor singleUserInteractor,
                          @NonNull UserViewModelToUserMapper mapper) {

@@ -136,18 +136,19 @@ dependencies {
     compile parent.ext.libraries.recyclerview
     compile parent.ext.libraries.constraintlayout
     compile parent.ext.libraries.glide
-//    compile parent.ext.libraries.eventbus
 
     compile parent.ext.libraries.butterknife
     annotationProcessor parent.ext.libraries.butterknifecompiler
 
     compile parent.ext.libraries.dagger
     annotationProcessor parent.ext.libraries.daggerCompiler
+//    compile parent.ext.libraries.daggerandroid
+//    annotationProcessor parent.ext.libraries.daggerandroidprocessor
+//    compile parent.ext.libraries.daggerandroidsupport
 
     compile parent.ext.libraries.retrofit
     compile parent.ext.libraries.gsonconverter
     compile parent.ext.libraries.okhttp
-//    compile parent.ext.libraries.eventbus
 
     compile parent.ext.libraries.rxjava
     compile parent.ext.libraries.rxandroid

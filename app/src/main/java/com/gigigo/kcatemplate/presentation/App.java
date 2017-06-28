@@ -3,6 +3,9 @@ package com.gigigo.kcatemplate.presentation;
 import android.app.Application;
 
 import com.gigigo.kcatemplate.BuildConfig;
+import com.gigigo.kcatemplate.di.components.DaggerMainComponent;
+import com.gigigo.kcatemplate.di.components.MainComponent;
+import com.gigigo.kcatemplate.di.modules.MainModule;
 import com.gigigo.kcatemplate.presentation.utils.Connectivity;
 import com.gigigo.kcatemplate.presentation.utils.RequestInterceptor;
 import com.gigigo.kretrofitmanager.CallAdapterFactory;
@@ -23,13 +26,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @version 1.0.0
  * @since 1.0.0
  */
-public class App
-        extends Application {
+public class App extends Application {
+
+    private MainComponent mainComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
         initialize();
+        initializeInjector();
     }
 
     private void initialize() {
@@ -62,5 +67,13 @@ public class App
                 .setConnectivityInterceptor(requestInterceptor)
                 .addEndpoint(BuildConfig.HOST)
                 .addConverterFactory(GsonConverterFactory.create(gson));
+    }
+
+    private void initializeInjector() {
+        mainComponent = DaggerMainComponent.builder().mainModule(new MainModule(this)).build();
+    }
+
+    public MainComponent getMainComponent() {
+        return mainComponent;
     }
 }

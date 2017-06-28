@@ -7,6 +7,8 @@ import com.gigigo.kretrofitmanager.CallbackAdapter;
 import com.gigigo.kretrofitmanager.ICall;
 import com.gigigo.kretrofitmanager.ServiceClient;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -17,6 +19,11 @@ import io.reactivex.annotations.NonNull;
  */
 
 public class UsersRepositoryImpl implements UsersRepository {
+
+    @Inject
+    public UsersRepositoryImpl() {
+    }
+
     @Override
     public Observable<ListUsers> users() {
         return Observable.create(new ObservableOnSubscribe<ListUsers>() {

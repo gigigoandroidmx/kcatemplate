@@ -12,6 +12,7 @@ import com.gigigo.kcatemplate.data.repository.UsersRepositoryImpl;
 import com.gigigo.kcatemplate.domain.interactor.ListUserInteractor;
 import com.gigigo.kcatemplate.domain.interactor.SingleUserInteractor;
 import com.gigigo.kcatemplate.domain.mapper.UserEntityToUserMapper;
+import com.gigigo.kcatemplate.presentation.App;
 import com.gigigo.kcatemplate.presentation.presenter.HomePresenter;
 import com.gigigo.kcatemplate.presentation.ui.adapter.HomeAdapter;
 import com.gigigo.kcatemplate.presentation.ui.base.KFragmentBase;
@@ -19,6 +20,8 @@ import com.gigigo.kcatemplate.presentation.ui.viewmodel.UserViewModel;
 import com.gigigo.kcatemplate.presentation.ui.viewmodel.mapper.UserViewModelToUserMapper;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import gigigo.com.kmvp.IAction;
@@ -40,6 +43,9 @@ public class HomeFragment extends KFragmentBase<HomePresenter.IViewHome, HomePre
     TextView textviewUserDetail;
 
     private HomeAdapter adapter;
+
+    @Inject
+    public HomePresenter homePresenter;
 
     @Override
     public void onResume() {
@@ -93,13 +99,15 @@ public class HomeFragment extends KFragmentBase<HomePresenter.IViewHome, HomePre
 
     @Override
     protected HomePresenter createPresenter() {
-        ListUserInteractor listUserInteractor = new ListUserInteractor(Schedulers.newThread(),
+        /*ListUserInteractor listUserInteractor = new ListUserInteractor(Schedulers.newThread(),
                 AndroidSchedulers.mainThread(), new UsersRepositoryImpl(), new UserEntityToUserMapper());
 
         SingleUserInteractor singleUserInteractor = new SingleUserInteractor(Schedulers.newThread(),
                 AndroidSchedulers.mainThread(), new UsersRepositoryImpl(), new UserEntityToUserMapper());
 
-        return new HomePresenter(listUserInteractor, singleUserInteractor, new UserViewModelToUserMapper());
+        return new HomePresenter(listUserInteractor, singleUserInteractor, new UserViewModelToUserMapper());*/
+
+        return homePresenter;
     }
 
     //endregion
@@ -133,4 +141,9 @@ public class HomeFragment extends KFragmentBase<HomePresenter.IViewHome, HomePre
     }
 
     //endregion
+
+    private void initializeDagger() {
+        App app = (App) getActivity().getApplication();
+        app.getMainComponent().inject(this);
+    }
 }

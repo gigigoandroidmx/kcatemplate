@@ -9,6 +9,9 @@ import com.gigigo.kcatemplate.domain.model.User;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.NonNull;
@@ -22,8 +25,11 @@ public class ListUserInteractor extends Interactor<List<User>> {
     private UsersRepository usersRepository;
     private UserEntityToUserMapper mapper;
 
-    public ListUserInteractor(Scheduler executorThread, Scheduler uiThread,
-                              UsersRepository usersRepository, UserEntityToUserMapper mapper) {
+    @Inject
+    public ListUserInteractor(@Named("executor_thread") Scheduler executorThread,
+                              @Named("ui_thread") Scheduler uiThread,
+                              UsersRepository usersRepository,
+                              UserEntityToUserMapper mapper) {
         super(executorThread, uiThread);
         this.usersRepository = usersRepository;
         this.mapper = mapper;

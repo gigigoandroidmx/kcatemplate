@@ -6,6 +6,9 @@ import com.gigigo.kcatemplate.domain.base.Interactor;
 import com.gigigo.kcatemplate.domain.mapper.UserEntityToUserMapper;
 import com.gigigo.kcatemplate.domain.model.User;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.NonNull;
@@ -20,8 +23,11 @@ public class SingleUserInteractor extends Interactor<User> {
     private UserEntityToUserMapper mapper;
     private int id;
 
-    public SingleUserInteractor(Scheduler executorThread, Scheduler uiThread,
-                                UsersRepository usersRepository, UserEntityToUserMapper mapper) {
+    @Inject
+    public SingleUserInteractor(@Named("executor_thread") Scheduler executorThread,
+                                @Named("ui_thread") Scheduler uiThread,
+                                UsersRepository usersRepository,
+                                UserEntityToUserMapper mapper) {
         super(executorThread, uiThread);
         this.usersRepository = usersRepository;
         this.mapper = mapper;
